@@ -10,16 +10,12 @@ class Form extends React.Component{
 handleSubmit=(e)=>{
     e.preventDefault()
     this.props.AddItems(this.state)
-    // this.setState({
-    //    input: this.state.name,
-      
-    // })
     this.setState({
-        name:null
+        name:""
     })
 }
 
- handleChnage=(e)=>{
+ handleChange=(e)=>{
     this.setState({
         name: e.target.value,
      })
@@ -35,7 +31,7 @@ handleSubmit=(e)=>{
             
             <h1>{this.state.input}</h1>
             <form onSubmit={this.handleSubmit}>
-           name <input name="name"  onChange={this.handleChnage}></input>
+           name <input name="name"  onChange={this.handleChange}  value={this.state.name}></input>
            <button>add new</button>
            </form>
         </div>
