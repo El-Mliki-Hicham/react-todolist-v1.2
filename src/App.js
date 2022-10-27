@@ -6,20 +6,34 @@ import React from 'react';
 
 
 class App extends React.Component {
-
   state={
     data:[
-      {id:1,name:'hicham'},
+      {id:1 ,name:'hicham'},
       {id:2,name:'amal'}
-    ]
+    ],
+    count : 2
   }
+ AddData=(value)=>{
+  
+  value.id = this.state.count +1
+  this.setState({count:value.id})
+  const newData = this.state.data
+  newData.push(value)
+  this.setState({
+    data:newData
+  })
+  console.log(this.state.data)
+
+ }
+
+ 
 
 render(){
   return (
   <div>
     <Table data={this.state.data} />
     <br></br>
-    <Form  />
+    <Form AddItems={this.AddData} />
   </div>
   );
 }

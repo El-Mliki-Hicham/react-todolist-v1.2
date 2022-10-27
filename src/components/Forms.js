@@ -2,22 +2,26 @@ import React from "react";
 
 class Form extends React.Component{
 
-state={
-    name:'',
-    id:""
-}
+    state={
+            id:'',
+            name:'',
+            // input:"",
+      }
 handleSubmit=(e)=>{
     e.preventDefault()
+    this.props.AddItems(this.state)
+    // this.setState({
+    //    input: this.state.name,
+      
+    // })
     this.setState({
-       name: this.state.name,
-        id: Math.random()
+        name:null
     })
 }
 
  handleChnage=(e)=>{
     this.setState({
         name: e.target.value,
-         id: Math.random()
      })
     console.log(e.target.value)
     console.log(this.state)
@@ -28,8 +32,8 @@ handleSubmit=(e)=>{
         <div>
 
 
-            <h1>{this.state.name}</h1>
-            <h1>{this.state.id}</h1>
+            
+            <h1>{this.state.input}</h1>
             <form onSubmit={this.handleSubmit}>
            name <input name="name"  onChange={this.handleChnage}></input>
            <button>add new</button>
